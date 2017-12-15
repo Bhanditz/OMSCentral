@@ -5,10 +5,10 @@ import { CourseService } from '../courses/course.service';
 import { GradeService } from '../grades/grade.service';
 
 const specializations = {
-  cpr: ['6505', '6601', '7641', '8803', '6475', '6476', '8803-O01'],
-  cs: ['6506', '8803', '6210', '6250', '6290', '6300', '6400', '6035', '6200', '6262', '6291', '6310', '6340', '6220'],
-  ii: ['6300', '6505', '8803', '6601', '7637', '7641', '6440', '6460'],
-  ml: ['6505', '8803', '7641', '7642', '7646', '6242', '6250']
+  cpr: ['CS-6505', 'CS-6601', 'CS-7641', 'CS-8803', 'CS-8803-GA', 'CS-6475', 'CS-6476', 'CS-8803-O01'],
+  cs: ['CS-6506', 'CS-8803', 'CS-8803-GA', 'CS-6210', 'CS-6250', 'CS-6290', 'CS-6300', 'CS-6400', 'CS-6035', 'CS-6200', 'CS-6262', 'CS-6291', 'CS-6310', 'CS-6340', 'CSE-6220'],
+  ii: ['CS-6300', 'CS-6505', 'CS-8803', 'CS-8803-GA', 'CS-6601', 'CS-7637', 'CS-7641', 'CS-6440', 'CS-6460'],
+  ml: ['CS-6505', 'CS-8803', 'CS-8803-GA', 'CS-7641', 'CS-7642', 'CS-7646', 'CSE-6242', 'CS-8803-O03', 'CSE-6250', 'CSE-8803-BDHI']
 };
 
 @Component({
@@ -53,7 +53,7 @@ export class CoursesComponent implements OnInit {
       this.courses = this.original;
     } else {
       this.courses = this.original.filter(course => {
-        return specializations[type].indexOf(course.id) !== -1;
+        return specializations[type].indexOf(course.department + '-' + course.id) !== -1;
       });
     }
   }
